@@ -1,10 +1,10 @@
 import { Slider } from "@/components/ui/slider";
 import { priceRange } from "@/data/filters";
-import { filterStyle } from "@/data/styles";
+import { style } from "@/data/styles";
 
 function PriceFilter({ range, setRange }) {
   return (
-    <section className={filterStyle.section}>
+    <section className={style.section}>
       <h2 className="text-sm font-semibold">Price</h2>
 
       <Slider

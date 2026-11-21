@@ -11,7 +11,7 @@ function Header() {
 
   return (
     <header>
-      <Container className="flex items-center justify-between py-3">
+      <Container className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 py-3">
         <a href={brandLogo.href} className="flex items-center gap-3">
           <img
             src={brandLogo.src}
@@ -21,8 +21,8 @@ function Header() {
           <p className="text-2xl font-bold">{brandLogo.name}</p>
         </a>
 
-        <div className="flex gap-10 items-center">
-          <div className="flex items-center gap-8">{icons}</div>
+        <div className="flex gap-4 items-center">
+          <div className="flex items-center gap-6 flex-wrap">{icons}</div>
 
           <a href={userProfile.href} className="flex items-center gap-3">
             <img

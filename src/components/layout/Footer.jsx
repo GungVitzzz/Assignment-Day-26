@@ -10,7 +10,10 @@ function Footer() {
       <ul className="flex flex-col gap-y-3">
         {outer.links.map((inner, index) => (
           <li key={inner + index}>
-            <a className="text-base font-normal" href={inner.href}>
+            <a
+              className="text-base font-normal hover:underline hover:decoration-solid"
+              href={inner.href}
+            >
               {inner.label}
             </a>
           </li>
@@ -22,26 +25,27 @@ function Footer() {
   return (
     <footer className="mt-12 border-t border-border">
       <Container className="py-6 space-y-12">
-        <div className="flex gap-x-60">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,12rem),1fr))] gap-8">
           <div>
             <a href={brandLogo.href} className="flex items-center gap-3">
               <img
                 src={brandLogo.src}
                 alt={brandLogo.alt}
-                className="size-20"
+                className="h-11.25 w-auto shrink-0"
               />
             </a>
           </div>
 
-          <div className="flex gap-20">{links}</div>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,9rem),1fr))] gap-x-8 gap-y-8">
+            {links}
+          </div>
         </div>
-
         <div className="flex flex-col flex-wrap items-center justify-center gap-8 mt-20">
           <h2 className="text-2xl font-semibold tracking-tight text-center">
             Payment Partners
           </h2>
 
-          <div className="flex gap-x-12">
+          <div className="flex flex-wrap justify-center gap-x-12 gap-y-4">
             {paymentLogo.map((pay) => (
               <img
                 key={pay.id}

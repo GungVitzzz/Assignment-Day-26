@@ -7,7 +7,7 @@ import Footer from "./components/layout/Footer";
 function App() {
   return (
     <div>
-      <div className="sticky top-0 z-50 border-b border-border backdrop-blur-3xl">
+      <div className="z-50 border-b border-border bg-background">
         <Header />
         <Navbar />
       </div>

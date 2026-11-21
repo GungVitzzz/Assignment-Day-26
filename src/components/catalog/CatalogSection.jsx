@@ -35,7 +35,7 @@ function CatalogSection() {
 
   return (
     <section>
-      <Container className="flex gap-6 py-6">
+      <Container className="flex gap-6 py-6 flex-wrap">
         <FilterSidebar
           range={range}
           setRange={setRange}

@@ -1,6 +1,6 @@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { filterStyle } from "@/data/styles";
+import { style } from "@/data/styles";
 import { colorOptions } from "@/data/filters";
 import { materialOptions } from "@/data/filters";
 import PriceFilter from "./PriceFilter";
@@ -22,8 +22,8 @@ function ColorFilter({ selectedColors, toggleColor }) {
   ));
 
   return (
-    <section className={filterStyle.section}>
-      <h2 className={filterStyle.h2}>Color</h2>
+    <section className={style.section}>
+      <h2 className={style.h2}>Color</h2>
 
       <div className="flex flex-col gap-y-4">{colors}</div>
     </section>
@@ -43,8 +43,8 @@ function MaterialFilter({ selectedMaterials, toggleMaterial }) {
   ));
 
   return (
-    <section className={filterStyle.section}>
-      <h2 className={filterStyle.h2}>Material</h2>
+    <section className={style.section}>
+      <h2 className={style.h2}>Material</h2>
 
       <div className="flex flex-col gap-y-4">{materials}</div>
     </section>
@@ -60,7 +60,7 @@ function FilterSidebar({
   toggleMaterial
 }) {
   return (
-    <aside className="w-60 shrink-0 space-y-4">
+    <aside className="min-w-0 flex-[1_1_15rem] space-y-4 self-start">
       <PriceFilter range={range} setRange={setRange} />
       <ColorFilter selectedColors={selectedColors} toggleColor={toggleColor} />
       <MaterialFilter
