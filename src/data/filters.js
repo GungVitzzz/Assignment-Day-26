@@ -1,7 +1,7 @@
 export const priceRange = {
-  min: 0,
-  max: 15000000,
-  step: 100000
+  min: 1000000,
+  max: 5000000,
+  step: 500000
 };
 
 export const colorOptions = [

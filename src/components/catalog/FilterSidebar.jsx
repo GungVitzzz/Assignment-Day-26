@@ -1,39 +1,18 @@
-import { Slider } from "@/components/ui/slider";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { priceRange } from "@/data/filters";
-import { useState } from "react";
 import { filterStyle } from "@/data/styles";
 import { colorOptions } from "@/data/filters";
 import { materialOptions } from "@/data/filters";
+import PriceFilter from "./PriceFilter";
 
-function PriceFilter() {
-  const [range, setRange] = useState([priceRange.min, priceRange.max]);
-
-  return (
-    <section className={filterStyle.section}>
-      <h2 className="text-sm font-semibold">Price</h2>
-
-      <Slider
-        value={range}
-        onValueChange={setRange}
-        min={priceRange.min}
-        max={priceRange.max}
-        step={priceRange.step}
-      />
-
-      <div className="flex justify-between text-sm font-normal">
-        <span>Rp {range[0].toLocaleString("id-ID")}</span>
-        <span>Rp {range[1].toLocaleString("id-ID")}</span>
-      </div>
-    </section>
-  );
-}
-
-function ColorFilter() {
+function ColorFilter({ selectedColors, toggleColor }) {
   const colors = colorOptions.map((color) => (
     <div key={color.id} className="flex gap-x-3">
-      <Checkbox id={color.id} />
+      <Checkbox
+        id={color.id}
+        onCheckedChange={() => toggleColor(color.id)}
+        checked={selectedColors.includes(color.id)}
+      />
       <span
         className="size-4 rounded-full"
         style={{ backgroundColor: color.hex }}
@@ -51,10 +30,14 @@ function ColorFilter() {
   );
 }
 
-function MaterialFilter() {
+function MaterialFilter({ selectedMaterials, toggleMaterial }) {
   const materials = materialOptions.map((mat) => (
     <div key={mat.id} className="flex gap-x-3">
-      <Checkbox id={mat.id} />
+      <Checkbox
+        id={mat.id}
+        onCheckedChange={() => toggleMaterial(mat.id)}
+        checked={selectedMaterials.includes(mat.id)}
+      />
       <Label htmlFor={mat.id}>{mat.label}</Label>
     </div>
   ));
@@ -68,12 +51,22 @@ function MaterialFilter() {
   );
 }
 
-function FilterSidebar() {
+function FilterSidebar({
+  range,
+  setRange,
+  selectedColors,
+  toggleColor,
+  selectedMaterials,
+  toggleMaterial
+}) {
   return (
     <aside className="w-60 shrink-0 space-y-4">
-      <PriceFilter />
-      <ColorFilter />
-      <MaterialFilter />
+      <PriceFilter range={range} setRange={setRange} />
+      <ColorFilter selectedColors={selectedColors} toggleColor={toggleColor} />
+      <MaterialFilter
+        selectedMaterials={selectedMaterials}
+        toggleMaterial={toggleMaterial}
+      />
     </aside>
   );
 }

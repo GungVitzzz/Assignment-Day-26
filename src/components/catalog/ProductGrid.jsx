@@ -1,4 +1,3 @@
-import { products } from "@/data/products";
 import { Badge } from "@/components/ui/badge";
 import { colorOptions, materialOptions } from "@/data/filters";
 
@@ -28,10 +27,10 @@ function ProductCard({ item }) {
   );
 }
 
-function ProductGrid() {
+function ProductGrid({ filteredProduct }) {
   return (
     <div className="grid min-w-0 flex-1 grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-      {products.map((item) => (
+      {filteredProduct.map((item) => (
         <ProductCard key={item.id} item={item} />
       ))}
     </div>
