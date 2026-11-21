@@ -1,18 +1,21 @@
-import Header from "./components/Header/Header";
-import Catalog from "./components/Catalog/Catalog";
+import Header from "./components/layout/Header";
+import Navbar from "./components/layout/Navbar";
+import CatalogHeader from "./components/catalog/CatalogHeader";
+import CatalogSection from "./components/catalog/CatalogSection";
 
 function App() {
-  const logo = {
-    src: "/assets/brand-logo.png",
-    alt: "logo brand"
-  };
-  const categories = ["Chair", "Table", "Sofa", "Dining", "Bed", "Interior"];
-
   return (
-    <>
-      <Header logo={logo} categories={categories} />
-      <Catalog />
-    </>
+    <div>
+      <div className="sticky top-0 z-50 border-b border-border backdrop-blur-3xl">
+        <Header />
+        <Navbar />
+      </div>
+
+      <main>
+        <CatalogHeader />
+        <CatalogSection />
+      </main>
+    </div>
   );
 }
 
